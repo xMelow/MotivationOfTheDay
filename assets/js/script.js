@@ -15,11 +15,18 @@ function getRandomQuote() {
 
 function displayQuote() {
     const $quote = document.querySelector("#quote");
-    const quote = getRandomQuote();
+    const storedDate = JSON.parse(localStorage.getItem("dailyQuote"));
+    const today = new Date().toDateString();
+    let quote;
 
-    $quote.innerHTML += `<h2>
-                            ${quote}
-                        </h2>`
+    if (storedDate && storedDate.date === today) {
+        quote = storedDate.quote;
+    } else {
+        quote = getRandomQuote();
+        localStorage.setItem("dailyQuote", JSON.stringify({ quote, date: today }))
+    } 
+
+    $quote.innerHTML += `<h2>${quote}</h2>`
 }
 
 function displayTimer() {

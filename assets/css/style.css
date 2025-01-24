@@ -17,15 +17,17 @@ section {
     width: 30rem
 }
 
-#flex-container {
-    display: flex;
-
+div {
+    text-align: center;
 }
 
-div {
-    font-size: 0.75rem;
-    margin-top: 0.25rem;
-    text-align: center;
+#timer {
+    font-size: 1.25rem;
+}
+
+#flex-container {
+    display: flex;
+    
 }
 
 #favo {
