@@ -12,6 +12,13 @@
         "default_popup": "index.html",
         "default_title": "Quote of the Day"
     },
+    "background": {
+        "service_worker": "/assets/js/background.js"
+    },
+    "permissions": [
+        "storage", 
+        "windows"
+    ],
     "icon": [
       {
         "src": "/assets/images/quote-icon-logo-design-template-vector.jpg",

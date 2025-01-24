@@ -17,7 +17,20 @@ section {
     width: 30rem
 }
 
+#flex-container {
+    display: flex;
+
+}
+
 div {
     font-size: 0.75rem;
     margin-top: 0.25rem;
+    text-align: center;
+}
+
+#favo {
+    background-image: url(../images/1077035.png);
+    background-repeat: no-repeat;
+    width: 5rem;
+    height: 5rem;
 }

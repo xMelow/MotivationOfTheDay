@@ -1,4 +1,10 @@
 # QuoteOfTheDay
 
-This is a browser extension to get a quote of the day when starting up your browser
+This is a browser extension shows a quote of the day
+
+## Features
+
+- show a quote of the day
+
+
 
