@@ -2,10 +2,22 @@
 
 body {
     background-color: #252529;
-    color: white;
+    color: rgb(199, 199, 199);
 }
 
 h1 {
-    font-size: 3rem;
+    font-size: 2rem;
     text-align: center;
+    color: #44B840;
+    text-decoration: underline;
+    text-underline-offset: 0.75rem;
+}
+
+section {
+    width: 30rem
+}
+
+div {
+    font-size: 0.75rem;
+    margin-top: 0.25rem;
 }

@@ -1,11 +1,18 @@
 {
     "name": "Quote of the Day",
+    "version": "1.0.0",
     "short_name": "Quotes",
     "start_url": "/index.html",
     "display": "standalone",
     "background_color": "#ffffff",
     "theme_color": "#000000",
-    "icons": [
+    "manifest_version": 3,
+    "author": "Flor Stellamans",
+    "action": {
+        "default_popup": "index.html",
+        "default_title": "Quote of the Day"
+    },
+    "icon": [
       {
         "src": "/assets/images/quote-icon-logo-design-template-vector.jpg",
         "sizes": "192x192",
