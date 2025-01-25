@@ -1,12 +1,12 @@
 {
-    "name": "Quote of the Day",
+    "name": "Motivation of the Day",
     "version": "1.0.0",
     "short_name": "Quotes",
     "manifest_version": 3,
     "author": "Flor Stellamans",
     "action": {
         "default_popup": "index.html",
-        "default_title": "Quote of the Day"
+        "default_title": "Motivation of the Day"
     },
     "background": {
         "service_worker": "/assets/js/background.js"
