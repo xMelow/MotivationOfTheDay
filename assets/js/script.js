@@ -1,6 +1,6 @@
 "use strict";
 
-import { QUOTES } from "../data/data.js";
+import { QUOTES, VIDEOS } from "../data/data.js";
 
 function init() {
     displayQuote();
@@ -65,17 +65,14 @@ function displayQuote() {
 function displayVideo() {
     const $video = document.querySelector("#video");
     const today = new Date().toDateString();
-    const playlistLength = 213;
     const storedDate = JSON.parse(localStorage.getItem("dailyVideo"));
-    const index = getRandomIndex(playlistLength);
-    const url = "https://www.youtube.com/watch?v=RhBt3SnEPhY&list=PLZ9Gh09yY_jNi3XqIuUK_HNNNOS1vYHgv&index=";
+    const randomIndex = getRandomIndex(VIDEOS.length);
     let video;
 
     if (storedDate && storedDate.date === today) {
         video = storedDate.video;
     } else {
-        video = url + index;
-        console.log(video);
+        video = VIDEOS[randomIndex];
         localStorage.setItem("dailyVideo", JSON.stringify({ video, date: today }))
     } 
 
