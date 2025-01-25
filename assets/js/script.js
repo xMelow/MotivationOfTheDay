@@ -7,7 +7,8 @@ function init() {
     setInterval(displayTimer, 1000);
     displayTimer();
 
-    document.querySelector("#favo").addEventListener("click", addFavorites);
+    document.querySelector("#extra").addEventListener("click", showNavigation);
+    document.querySelector("#close").addEventListener("click", hideNavigation);
 }
 
 function getRandomQuote() {
@@ -46,15 +47,18 @@ function displayTimer() {
     const minutes = Math.floor((timeDiff / (1000 * 60)) % 60);
     const seconds = Math.floor((timeDiff / 1000) % 60);
 
-    $timer.innerHTML = `${hours}:${minutes}:${seconds}`;
+    $timer.innerHTML = `${hours.toString().padStart(2, "0")}:${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
 }
 
-function addFavorites() {
-    //get the current quote
-    const currentQuote = JSON.parse(localStorage.getItem("dailyQuote"));
-    console.log(currentQuote.quote);
-    //add to the favorites list
+function showNavigation() {
+    const $nav = document.querySelector("nav");
+    $nav.classList.remove("hidden");
+}   
 
+function hideNavigation() {
+    const $nav = document.querySelector("nav");
+    $nav.classList.add("hidden"); 
 }
+
 
 init();
