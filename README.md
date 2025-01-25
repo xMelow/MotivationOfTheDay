@@ -1,4 +1,4 @@
-# QuoteOfTheDay
+# Motivation of the day
 
 This is a browser extension shows a quote and a video of the day and refreshes the next day.
 
