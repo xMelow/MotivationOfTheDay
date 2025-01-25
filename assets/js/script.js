@@ -26,7 +26,7 @@ function displayQuote() {
         localStorage.setItem("dailyQuote", JSON.stringify({ quote, date: today }))
     } 
 
-    $quote.innerHTML += `<h2>${quote}</h2>`
+    $quote.innerHTML = `<h2>${quote}</h2>`
 }
 
 function displayTimer() {

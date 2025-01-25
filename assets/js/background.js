@@ -1,6 +1,12 @@
+let openedOnStartup = false;
 
 chrome.runtime.onStartup.addListener(() => {
-    console.log("Browser started, extension is running.");
-    init();
+    if (!openedOnStartup) {
+        openedOnStartup = true;
+        chrome.action.openPopup();
+    }
 });
 
+chrome.windows.onCreated.addListener(() => {
+    chrome.action.openPopup();
+});
