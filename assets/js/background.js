@@ -6,3 +6,7 @@ chrome.runtime.onStartup.addListener(() => {
         chrome.action.openPopup();
     }
 });
+
+// chrome.windows.onCreated.addListener(() => {
+//     chrome.action.openPopup();
+// });

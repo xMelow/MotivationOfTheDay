@@ -6,5 +6,7 @@ This is a browser extension shows a quote of the day
 
 - show a quote of the day
 
+## Preview
+
 
 

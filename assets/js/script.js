@@ -39,7 +39,7 @@ function displayTimer() {
 
     const timeDiff = nextDay - now;
 
-    // convert miliseconds to ...
+    // convert miliseconds to -->
     const hours = Math.floor((timeDiff / (1000 * 60 * 60)) % 24);
     const minutes = Math.floor((timeDiff / (1000 * 60)) % 60);
     const seconds = Math.floor((timeDiff / 1000) % 60);

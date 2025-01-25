@@ -30,9 +30,18 @@ div {
     
 }
 
+#center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 #favo {
     background-image: url(../images/1077035.png);
     background-repeat: no-repeat;
-    width: 5rem;
-    height: 5rem;
+    background-size: contain;
+    background-position: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-bottom: 1rem;
 }
