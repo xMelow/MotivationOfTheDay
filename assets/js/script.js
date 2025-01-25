@@ -50,15 +50,5 @@ function displayTimer() {
     $timer.innerHTML = `${hours.toString().padStart(2, "0")}:${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
 }
 
-function showNavigation() {
-    const $nav = document.querySelector("nav");
-    $nav.classList.remove("hidden");
-}   
-
-function hideNavigation() {
-    const $nav = document.querySelector("nav");
-    $nav.classList.add("hidden"); 
-}
-
 
 init();
