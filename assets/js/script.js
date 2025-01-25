@@ -6,6 +6,8 @@ function init() {
     displayQuote();
     setInterval(displayTimer, 1000);
     displayTimer();
+
+    document.querySelector("#favo").addEventListener("click", addFavorites);
 }
 
 function getRandomQuote() {
@@ -48,6 +50,10 @@ function displayTimer() {
 }
 
 function addFavorites() {
+    //get the current quote
+    const currentQuote = JSON.parse(localStorage.getItem("dailyQuote"));
+    console.log(currentQuote.quote);
+    //add to the favorites list
 
 }
 

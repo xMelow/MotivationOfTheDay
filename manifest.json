@@ -2,9 +2,6 @@
     "name": "Quote of the Day",
     "version": "1.0.0",
     "short_name": "Quotes",
-    "display": "standalone",
-    "background_color": "#ffffff",
-    "theme_color": "#000000",
     "manifest_version": 3,
     "author": "Flor Stellamans",
     "action": {
@@ -19,9 +16,6 @@
         "windows",
         "tabs",
         "activeTab"
-    ],
-    "icon": {
-        "192": "/assets/images/quote-icon-logo-design-template-vector.jpg"
-    }
+    ]
   }
   
