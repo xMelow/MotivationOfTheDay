@@ -4,8 +4,13 @@ body {
     font-family: 'PT mono';
 }
 
-.hidden {
+#hidden {
     display: none;
+}
+
+#flex-container {
+    display: flex;
+    justify-content: space-between;
 }
 
 h1 {
@@ -17,7 +22,8 @@ h1 {
 }
 
 section {
-    width: 30rem
+    width: 30rem;
+    height: 7rem;
 }
 
 div {
@@ -32,3 +38,39 @@ div {
     margin-bottom: 1.5rem;
     font-size: 1rem;
 }
+
+#video {
+    padding-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+#video a {
+    text-decoration: underline;
+    text-underline-offset: 0.5rem;
+    color: rgb(230, 230, 230);
+    font-size: 1.5rem;
+}
+
+.navigation {
+    font-size: 1.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.navigation:first-child {
+    position: absolute;
+    top: 85%;
+    left: 0%;
+}
+
+.navigation:last-child {
+    position: absolute;
+    top: 85%;
+    left: 90%;
+}
+
+.navigation a {
+    text-decoration: none;
+    color: rgb(230, 230, 230);
+}
+

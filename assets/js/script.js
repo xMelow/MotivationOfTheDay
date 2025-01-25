@@ -4,32 +4,82 @@ import { QUOTES } from "../data/data.js";
 
 function init() {
     displayQuote();
+    displayVideo();
+
     setInterval(displayTimer, 1000);
     displayTimer();
 
-    document.querySelector("#extra").addEventListener("click", showNavigation);
-    document.querySelector("#close").addEventListener("click", hideNavigation);
+    document.querySelectorAll(".navigation").forEach(el => {
+        el.addEventListener('click', navigation);
+    })
 }
 
-function getRandomQuote() {
-    const randomIndex = Math.floor(Math.random() * QUOTES.length);
-    return QUOTES[randomIndex];
+function navigation() {
+    const $navigation = document.querySelectorAll(".navigation");
+    const $sections = document.querySelectorAll("section");
+    const $header = document.querySelector("h1");
+
+    if ($navigation[0].id === "hidden") {
+        $navigation[0].id = "";
+        $navigation[1].id = "hidden";
+
+        $sections[1].id = "";
+        $sections[0].id = "hidden";
+
+        $header.innerHTML = "Video of the day";
+
+    } else if ($navigation[1].id === "hidden") {
+        $navigation[1].id = "";
+        $navigation[0].id = "hidden";
+
+        $sections[0].id = "";
+        $sections[1].id = "hidden";
+
+        $header.innerHTML = "Quote of the day";
+    }
+    console.log($navigation);
+}
+
+function getRandomIndex(maxNumber) {
+    const randomIndex = Math.floor(Math.random() * maxNumber);
+    return randomIndex
 }
 
 function displayQuote() {
     const $quote = document.querySelector("#quote");
     const storedDate = JSON.parse(localStorage.getItem("dailyQuote"));
     const today = new Date().toDateString();
+    const randomIndex = getRandomIndex(QUOTES.length)
     let quote;
 
     if (storedDate && storedDate.date === today) {
         quote = storedDate.quote;
     } else {
-        quote = getRandomQuote();
+        quote = QUOTES[randomIndex];
         localStorage.setItem("dailyQuote", JSON.stringify({ quote, date: today }))
     } 
 
     $quote.innerHTML = `<h2>${quote}</h2>`
+}
+
+function displayVideo() {
+    const $video = document.querySelector("#video");
+    const today = new Date().toDateString();
+    const playlistLength = 213;
+    const storedDate = JSON.parse(localStorage.getItem("dailyVideo"));
+    const index = getRandomIndex(playlistLength);
+    const url = "https://www.youtube.com/watch?v=RhBt3SnEPhY&list=PLZ9Gh09yY_jNi3XqIuUK_HNNNOS1vYHgv&index=";
+    let video;
+
+    if (storedDate && storedDate.date === today) {
+        video = storedDate.video;
+    } else {
+        video = url + index;
+        console.log(video);
+        localStorage.setItem("dailyVideo", JSON.stringify({ video, date: today }))
+    } 
+
+    $video.innerHTML = `<a href="${video}" target="_blank">Video</a>`
 }
 
 function displayTimer() {
