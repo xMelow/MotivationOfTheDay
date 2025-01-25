@@ -1,7 +1,7 @@
 {
     "name": "Motivation of the Day",
     "version": "1.0.0",
-    "short_name": "Quotes",
+    "short_name": "Motivation",
     "manifest_version": 3,
     "author": "Flor Stellamans",
     "action": {
