@@ -11,7 +11,10 @@ function init() {
 
     document.querySelectorAll(".navigation").forEach(el => {
         el.addEventListener('click', navigation);
-    })
+    });
+
+    document.querySelector("#extra").addEventListener("click", showNavigation);
+    document.querySelector("#close").addEventListener("click", hideNavigation);
 }
 
 function navigation() {
@@ -43,6 +46,16 @@ function navigation() {
 function getRandomIndex(maxNumber) {
     const randomIndex = Math.floor(Math.random() * maxNumber);
     return randomIndex
+}
+
+function showNavigation() {
+    const $nav = document.querySelector("#nav");
+    $nav.classList.remove("hidden");
+}   
+
+function hideNavigation() {
+    const $nav = document.querySelector("#nav");
+    $nav.classList.add("hidden");
 }
 
 function displayQuote() {

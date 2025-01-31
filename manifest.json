@@ -4,6 +4,7 @@
     "short_name": "Motivation",
     "manifest_version": 3,
     "author": "Flor Stellamans",
+    "option_page": "settings.html",
     "action": {
         "default_popup": "index.html",
         "default_title": "Motivation of the Day"

@@ -2,9 +2,14 @@ body {
     background-color: #252529;
     color: rgb(230, 230, 230);
     font-family: 'PT mono';
+    height: 5%;
 }
 
 #hidden {
+    display: none;
+}
+
+.hidden {
     display: none;
 }
 
@@ -74,3 +79,46 @@ div {
     color: rgb(230, 230, 230);
 }
 
+#extra {
+    position: absolute;
+    top: 0%;
+    left: 2%;
+}
+#extra a {
+    font-size: 2rem;
+    text-decoration: none;
+    color: #44B840;
+}
+
+nav #close {
+    position: absolute;
+    top: 2%;
+    left: 80%;
+}
+nav #close a {
+    text-decoration: none;
+    color: rgb(230, 230, 230);
+}
+
+nav {
+    font-size: 1.25rem;
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    width: 40%;
+    height: 100%;
+    background-color: #252529;
+    border-right: rgb(230, 230, 230) solid 1px;
+}
+nav ul {
+    margin-top: 1.5rem;
+}
+nav li {
+    list-style-type: none;
+    padding-top: 2rem;
+}
+nav li a {
+    color: #44B840;
+    text-decoration: none;
+    text-align: left;
+}
