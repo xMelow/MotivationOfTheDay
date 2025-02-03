@@ -1,11 +1,11 @@
-// let openedOnStartup = false;
+let openedOnStartup = false;
 
-// chrome.runtime.onStartup.addListener(() => {
-//     if (!openedOnStartup) {
-//         openedOnStartup = true;
-//         chrome.action.openPopup();
-//     }
-// });
+chrome.runtime.onStartup.addListener(() => {
+    if (!openedOnStartup) {
+        openedOnStartup = true;
+        chrome.action.openPopup();
+    }
+});
 
 chrome.storage.session.get("hasRun", (data) => {
     if (!data.hasRun) {
