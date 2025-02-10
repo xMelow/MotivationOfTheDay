@@ -1,19 +1,26 @@
-let openedOnStartup = false;
-
 chrome.runtime.onStartup.addListener(() => {
-    if (!openedOnStartup) {
-        openedOnStartup = true;
-        chrome.action.openPopup();
-    }
+    chrome.storage.sync.get("enableStartUp", (data) => {
+        console.log("Startup setting retrieved:", data);
+
+        const setting = data.enableStartUp || "none"; 
+
+        if (setting === "startUp") {
+            chrome.action.openPopup();
+        } else if (setting === "window") {
+            chrome.windows.create({ url: "index.html", type: "popup" });
+        } else if (setting === "tabs") {
+            chrome.tabs.create({ url: "index.html" });
+        }
+    });
 });
 
-chrome.storage.session.get("hasRun", (data) => {
-    if (!data.hasRun) {
-        chrome.storage.session.set({ hasRun: true });
-        chrome.action.openPopup();
-    }
-});
+// Also listen for new tab creation
+chrome.tabs.onCreated.addListener(() => {
+    chrome.storage.sync.get("enableStartUp", (data) => {
+        console.log("New tab setting:", data);
 
-// chrome.windows.onCreated.addListener(() => {
-//     chrome.action.openPopup();
-// });
+        if (data.enableStartUp === "tabs") {
+            chrome.tabs.create({ url: "index.html" });
+        }
+    });
+});
