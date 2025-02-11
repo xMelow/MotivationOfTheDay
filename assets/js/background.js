@@ -1,26 +1,33 @@
 chrome.runtime.onStartup.addListener(() => {
-    chrome.storage.sync.get("enableStartUp", (data) => {
-        console.log("Startup setting retrieved:", data);
+    chrome.storage.local.get("hasOpenedBefore", (data) => {
+        const hasOpened = data.hasOpenedBefore || false;
 
-        const setting = data.enableStartUp || "none"; 
+        chrome.storage.sync.get("setting", (userSetting) => {
+            const setting = userSetting.setting || "startUp";
+            console.log("Startup setting:", setting, "Has opened before:", hasOpened);
 
-        if (setting === "startUp") {
+            if (setting === "firstTime" && !hasOpened) {
+                chrome.action.openPopup();
+                chrome.storage.local.set({ hasOpenedBefore: true });
+            } else if (setting === "startUp") {
+                chrome.action.openPopup();
+            }
+        });
+    });
+});
+
+chrome.tabs.onCreated.addListener(() => {
+    chrome.storage.sync.get("setting", (data) => {
+        if (data.setting === "tabs") {
             chrome.action.openPopup();
-        } else if (setting === "window") {
-            chrome.windows.create({ url: "index.html", type: "popup" });
-        } else if (setting === "tabs") {
-            chrome.tabs.create({ url: "index.html" });
         }
     });
 });
 
-// Also listen for new tab creation
-chrome.tabs.onCreated.addListener(() => {
-    chrome.storage.sync.get("enableStartUp", (data) => {
-        console.log("New tab setting:", data);
-
-        if (data.enableStartUp === "tabs") {
-            chrome.tabs.create({ url: "index.html" });
+chrome.windows.onCreated.addListener(() => {
+    chrome.storage.sync.get("setting", (data) => {
+        if (data.setting === "window") {
+            chrome.action.openPopup();
         }
     });
 });
