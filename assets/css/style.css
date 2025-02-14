@@ -42,6 +42,7 @@ div {
 #quote {
     margin-bottom: 1.5rem;
     font-size: 1rem;
+    margin-left: 1rem;
 }
 
 #video {
@@ -82,13 +83,13 @@ div {
 #extra {
     position: absolute;
     top: 5%;
-    left: 90%;
+    left: 92%;
 }
 
 #extra a {
     display: block;  
-    width: 2rem;  
-    height: 2rem;  
+    width: 1.5rem;  
+    height: 1.5rem;  
     background-image: url("/assets/images/settings_white.png");
     background-size: contain;
     background-repeat: no-repeat;

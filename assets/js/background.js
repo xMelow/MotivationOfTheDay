@@ -4,9 +4,8 @@ chrome.runtime.onStartup.addListener(() => {
 
         chrome.storage.sync.get("setting", (userSetting) => {
             const setting = userSetting.setting || "startUp";
-            console.log("Startup setting:", setting, "Has opened before:", hasOpened);
 
-            if (setting === "firstTime" && !hasOpened) {
+            if (setting === "firstStartUp" && !hasOpened) {
                 chrome.action.openPopup();
                 chrome.storage.local.set({ hasOpenedBefore: true });
             } else if (setting === "startUp") {
