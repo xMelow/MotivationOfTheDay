@@ -1,6 +1,6 @@
 "use strict";
 
-const quotesApiUrl = "http://localhost:3000";
+const quotesApiUrl = "https://quoteapi-rboj.onrender.com";
 
 export async function getQuoteOfTheDay() {
     const request = await fetch(`${quotesApiUrl}/quote`);
