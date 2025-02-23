@@ -9,7 +9,7 @@ export async function getQuoteOfTheDay() {
 }
 
 export async function getQuote() {
-    const response = await fetch("https://github.com/xMelow/MotivationOfTheDay/blob/main/assets/data/quotesAndVideo.js");
+    const response = await fetch("https://raw.githubusercontent.com/xMelow/MotivationOfTheDay/main/assets/data/quotes.json");
     const data = await response.json();
     const quotes = data.quotes;
 
@@ -22,6 +22,3 @@ export async function getQuote() {
     
     return quotes[index]; // Select the same quote for all users daily
 }
-
-// Example usage
-getQuote().then(quote => console.log(quote));

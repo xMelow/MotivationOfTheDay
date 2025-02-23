@@ -11,10 +11,7 @@ function init() {
 async function displayQuote() {
     const $quote = document.querySelector("#quote");
     const quote = await getQuote();
-
-    console.log(quote);
-
-    $quote.innerHTML = `<h2>${quote.quote}</h2>`;
+    $quote.innerHTML = `<h2>${quote}</h2>`;
 }
 
 function displayTimer() {
