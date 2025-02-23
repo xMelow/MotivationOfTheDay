@@ -1,12 +1,22 @@
-body {
-    background-color: #252529;
-    color: rgb(230, 230, 230);
-    font-family: 'PT mono';
-    height: 5%;
+
+/* default black theme */
+:root {
+    --bg-color: #252529;
+    --accent-color: #44B840;
+    --text-color: #e6e6e6;
+}   
+
+[data-theme="light"] {
+    --bg-color: #e6e6e6;
+    --accent-color: #44B840;
+    --text-color: #252529;
 }
 
-#hidden {
-    display: none;
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'PT mono';
+    height: 5%;
 }
 
 .hidden {
@@ -21,7 +31,7 @@ body {
 h1 {
     font-size: 2rem;
     text-align: center;
-    color: #44B840;
+    color: var(--accent-color);
     text-decoration: underline;
     text-underline-offset: 0.75rem;
 }
@@ -35,6 +45,16 @@ div {
     text-align: center;
 }
 
+#backButton {
+    text-align: left;
+}
+
+#backButton a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 1.25rem;
+}
+
 #timer {
     font-size: 1.25rem;
 }
@@ -43,54 +63,86 @@ div {
     margin-bottom: 1.5rem;
     font-size: 1rem;
     margin-left: 1rem;
+    padding: 0.5rem;
 }
 
-#video {
-    padding-top: 2rem;
-    margin-bottom: 2rem;
-}
-
-#video a {
-    text-decoration: underline;
-    text-underline-offset: 0.5rem;
-    color: rgb(230, 230, 230);
+#settings {
+    width: 30rem;
+    height: 7rem;
     font-size: 1.5rem;
 }
 
-.navigation {
-    font-size: 1.5rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
+#settings select {
+    font-size: 1.2rem;
+    color: var(--accent-color);
+    background-color: var(--bg-color);
+    border: none;
 }
 
-.navigation:first-child {
+#settings input {
+    font-size: 1rem;
+    color: var(--accent-color);
+    background-color: var(--bg-color);
+    padding: 0.5rem;
+    margin-top: 1rem;
+    border-radius: 0.5rem;
+
     position: absolute;
-    top: 85%;
+    left: 40%;
+    top: 55%;
+}
+
+#openSidebar {
+    position: absolute;
+    top: 0%;
+    left: 2%;
+}
+#openSidebar a {
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: var(--accent-color);
+}
+
+nav #closeSidebar {
+    position: absolute;
+    top: 2%;
+    left: 80%;
+}
+nav #closeSidebar a {
+    text-decoration: none;
+    color: var(--text-color)
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--accent-color);
+
+}
+
+nav {
+    font-size: 1.25rem;
+    position: fixed;
+    top: 0%;
     left: 0%;
+    width: 40%;
+    height: 100%;
+    background-color: var(--bg-color);
+    border-right: var(--text-color) solid 1px;
+    text-align: left;
 }
 
-.navigation:last-child {
-    position: absolute;
-    top: 85%;
+nav ul {
+    margin-top: 1.5rem;
+}
+
+nav li {
+    list-style-type: none;
+    padding-top: 2rem;
+    top: 5%;
     left: 90%;
 }
 
-.navigation a {
-    text-decoration: none;
-    color: rgb(230, 230, 230);
-}
-
-#extra {
-    position: absolute;
-    top: 5%;
-    left: 92%;
-}
-
-#extra a {
-    display: block;  
-    width: 1.5rem;  
-    height: 1.5rem;  
-    background-image: url("/assets/images/settings_white.png");
-    background-size: contain;
-    background-repeat: no-repeat;
+#theme {
+    text-align: center;
+    font-size: 2rem;
 }

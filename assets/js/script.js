@@ -1,11 +1,25 @@
 "use strict";
 
-import { getQuote, getQuoteOfTheDay } from "./api.js";
+import { getQuote } from "./api.js";
+
+document.addEventListener("DOMContentLoaded", init);
 
 function init() {
     displayQuote();
     setInterval(displayTimer, 1000);
     displayTimer();
+
+    document.querySelector("#openSidebar").addEventListener("click", navigation);
+    document.querySelector("#closeSidebar").addEventListener("click", navigation);
+}
+
+function navigation() {
+    const $sidebar = document.querySelector("#sidebar");
+    if ($sidebar.classList.contains("hidden")) {
+        $sidebar.classList.remove("hidden");
+    } else {
+        $sidebar.classList.add("hidden");
+    }
 }
 
 async function displayQuote() {
@@ -31,6 +45,3 @@ function displayTimer() {
 
     $timer.innerHTML = `${hours.toString().padStart(2, "0")}:${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
 }
-
-
-init();
