@@ -36,6 +36,14 @@ h1 {
     text-underline-offset: 0.75rem;
 }
 
+h2 {
+    font-size: 1.25rem;  
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
 section {
     width: 30rem;
     height: 7rem;
@@ -144,5 +152,10 @@ nav li {
 
 #theme {
     text-align: center;
-    font-size: 2rem;
 }
+
+#theme p {
+    font-size: 1.25rem;
+}
+
+
