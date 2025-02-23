@@ -1,6 +1,6 @@
 "use strict";
 
-import { getQuoteOfTheDay } from "./api.js";
+import { getQuote, getQuoteOfTheDay } from "./api.js";
 
 function init() {
     displayQuote();
@@ -10,9 +10,11 @@ function init() {
 
 async function displayQuote() {
     const $quote = document.querySelector("#quote");
-    const quote = await getQuoteOfTheDay()
+    const quote = await getQuote();
 
-    $quote.innerHTML = `<h2>${quote.quote}</h2>`
+    console.log(quote);
+
+    $quote.innerHTML = `<h2>${quote.quote}</h2>`;
 }
 
 function displayTimer() {
