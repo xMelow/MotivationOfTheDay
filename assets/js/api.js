@@ -9,7 +9,7 @@ export async function getQuoteOfTheDay() {
 }
 
 export async function getQuote() {
-    const response = await fetch("https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPO/main/quotes.json");
+    const response = await fetch("https://github.com/xMelow/MotivationOfTheDay/blob/main/assets/data/quotesAndVideo.js");
     const data = await response.json();
     const quotes = data.quotes;
 

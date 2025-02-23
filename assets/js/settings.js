@@ -10,7 +10,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     saveButton.addEventListener("click", () => {
         chrome.storage.sync.set({ setting: settingsValue.value }, () => {
-            console.log("Saved setting:", settingsValue.value);
             message.innerHTML = "<p>Settings Saved!</p>";
         });
     });
