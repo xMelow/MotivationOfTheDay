@@ -4,18 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/style.css">
-    <script src="assets/js/script.js" type="module" defer></script>
+    <script src="assets/js/theme.js" type="module" defer></script>
     <title>Theme</title>
 </head>
 <body>
 
     <header>
-        <h1>Themes</h1>
+        <h1>Theme</h1>
     </header>
 
     <section id="theme">
-        <p>coming soon...</p>
+        <h3>Background Theme</h3>
+        <select id="themeSelector">
+            <option value="dark">Dark</option>
+            <option value="light">Light</option>
+        </select>
+    
+        <h3>Accent Color</h3>
+        <div id="colorOptions">
+            <button class="color-btn" data-color="#44B840" id="color-button-green"></button>
+            <button class="color-btn" data-color="#FF5733" id="color-button-red"></button>
+            <button class="color-btn" data-color="#3498DB" id="color-button-blue"></button>
+            <button class="color-btn" data-color="#F1C40F" id="color-button-yellow"></button>
+        </div>
     </section>
+    
 
     <div id="backButton">
         <a href="index.html">< Back</a>

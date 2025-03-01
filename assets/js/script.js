@@ -1,6 +1,7 @@
 "use strict";
 
 import { getQuote } from "./api.js";
+import { setupTheme } from "./theme.js";
 
 document.addEventListener("DOMContentLoaded", init);
 
@@ -11,6 +12,8 @@ function init() {
 
     document.querySelector("#openSidebar").addEventListener("click", navigation);
     document.querySelector("#closeSidebar").addEventListener("click", navigation);
+
+    setupTheme();
 }
 
 function navigation() {
