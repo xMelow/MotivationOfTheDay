@@ -184,6 +184,10 @@ button.color-btn:hover {
     background-color: #ffcc00;
 }
 
+#color-button-purple {
+    background-color: #cc00ff;
+}
+
 /* Main Container */
 #theme {
     background-color: var(--bg-color);
