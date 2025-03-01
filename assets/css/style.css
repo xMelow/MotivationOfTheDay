@@ -17,6 +17,7 @@ body {
     color: var(--text-color);
     font-family: 'PT mono';
     height: 5%;
+    overflow-y: auto;
 }
 
 .hidden {
@@ -172,13 +173,72 @@ button.color-btn:hover {
 }
 
 #color-button-red {
-    background-color: #FF5733;
+    background-color: #ff3333;
 }
 
 #color-button-blue {
-    background-color: #3498DB;
+    background-color: #1981c7;
 }
 
 #color-button-yellow {
-    background-color: #F1C40F;
+    background-color: #ffcc00;
+}
+
+/* Main Container */
+#theme {
+    background-color: var(--bg-color);
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    padding-left: 1rem;
+}
+
+/* Header */
+h1 {
+    font-size: 2rem;
+    color: var(--accent-color);
+    text-decoration: underline;
+    text-underline-offset: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Subheaders */
+h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Dropdown */
+#themeSelector {
+    font-size: 1.1rem;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    border: 2px solid var(--accent-color);
+    padding: 0.5rem;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+}
+
+/* Accent Color Buttons */
+#colorOptions {
+    display: flex;
+    gap: 1rem;
+}
+
+.color-btn:hover {
+    transform: scale(1.2);
+    border: 3px solid white;
+}
+
+/* Back Button */
+#backButton {
+    margin-top: 1.5rem;
+}
+
+#backButton a {
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: var(--accent-color);
+    transition: color 0.2s ease-in-out;
 }

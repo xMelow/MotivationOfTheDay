@@ -20,9 +20,7 @@ function selectTheme(e) {
 
 function selectAccentColor(e) {
     e.preventDefault();
-    console.log("color");
-    console.log(e.target.value);
-    const selectedColor = button.dataset.color;
+    const selectedColor = e.target.dataset.color;
     document.documentElement.style.setProperty("--accent-color", selectedColor);
     localStorage.setItem("accentColor", selectedColor);
 }
