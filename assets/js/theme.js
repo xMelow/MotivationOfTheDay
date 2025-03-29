@@ -3,7 +3,7 @@
 document.addEventListener("DOMContentLoaded", init);
 
 function init() {
-    document.querySelector("#themeSelector").addEventListener("click", selectTheme);
+    document.querySelector("#themeSelector").addEventListener("change", selectTheme);
     document.querySelectorAll(".color-btn").forEach(el => {
         el.addEventListener("click", selectAccentColor);
     });
@@ -12,17 +12,15 @@ function init() {
 }
 
 function selectTheme(e) {
-    const newTheme = e.target.value;
+    const newTheme = e.target.value || "dark";
     document.documentElement.setAttribute("data-theme", newTheme);
     localStorage.setItem("theme", newTheme);
-    setupTheme();
 }
 
 function selectAccentColor(e) {
-    const selectedColor = e.target.dataset.color;
+    const selectedColor = e.target.dataset.color || "#44B840";
     document.documentElement.style.setProperty("--accent-color", selectedColor);
     localStorage.setItem("accentColor", selectedColor);
-    setupTheme();
 }
 
 function setupTheme() {
@@ -35,8 +33,17 @@ function setupTheme() {
     document.documentElement.setAttribute("data-theme", savedTheme);
     document.documentElement.style.setProperty("--accent-color", savedAccent);
 
-    $themeSelector.value = savedTheme;
-    $colorButtons.value = savedAccent;
+    if ($themeSelector) {
+        $themeSelector.value = savedTheme;
+    }
+
+    $colorButtons.forEach((btn) => {
+        if (btn.dataset.color === savedAccent) {
+            btn.classList.add("selected");
+        } else {
+            btn.classList.remove("selected");
+        }
+    });
 }
 
 export { setupTheme }
