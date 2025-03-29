@@ -12,17 +12,17 @@ function init() {
 }
 
 function selectTheme(e) {
-    e.preventDefault();
     const newTheme = e.target.value;
     document.documentElement.setAttribute("data-theme", newTheme);
     localStorage.setItem("theme", newTheme);
+    setupTheme();
 }
 
 function selectAccentColor(e) {
-    e.preventDefault();
     const selectedColor = e.target.dataset.color;
     document.documentElement.style.setProperty("--accent-color", selectedColor);
     localStorage.setItem("accentColor", selectedColor);
+    setupTheme();
 }
 
 function setupTheme() {
@@ -34,6 +34,7 @@ function setupTheme() {
 
     document.documentElement.setAttribute("data-theme", savedTheme);
     document.documentElement.style.setProperty("--accent-color", savedAccent);
+
     $themeSelector.value = savedTheme;
     $colorButtons.value = savedAccent;
 }

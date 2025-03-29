@@ -15,8 +15,13 @@ chrome.runtime.onStartup.addListener(() => {
     });
 });
 
+chrome.storage.sync.get("setting", (data) => {
+    console.log("Current setting:", data.setting);
+});
+
 chrome.tabs.onCreated.addListener(() => {
     chrome.storage.sync.get("setting", (data) => {
+        console.log("Tabs event - setting:", data.setting);
         if (data.setting === "tabs") {
             chrome.action.openPopup();
         }
@@ -25,6 +30,7 @@ chrome.tabs.onCreated.addListener(() => {
 
 chrome.windows.onCreated.addListener(() => {
     chrome.storage.sync.get("setting", (data) => {
+        console.log("Windows event - setting:", data.setting);
         if (data.setting === "window") {
             chrome.action.openPopup();
         }

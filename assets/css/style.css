@@ -93,12 +93,15 @@ div {
     color: var(--accent-color);
     background-color: var(--bg-color);
     padding: 0.5rem;
-    margin-top: 1rem;
     border-radius: 0.5rem;
 
     position: absolute;
     left: 40%;
     top: 55%;
+}
+
+#message {
+    margin: 5rem;
 }
 
 #openSidebar {

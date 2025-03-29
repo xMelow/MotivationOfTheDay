@@ -2,24 +2,29 @@
 
 import { setupTheme } from "./theme.js";
 
+document.addEventListener("DOMContentLoaded", init);
 
-document.addEventListener("DOMContentLoaded", () => {
+function init() {
+    document.querySelector("#submit").addEventListener("click", saveSettings);
     setupTheme();
+    getSetting();
+}
 
-
-    const $settingsValue = document.querySelector("#settings");
-    const $saveButton = document.querySelector("#submit");
-    const $message = document.querySelector("#message");
-
+function getSetting() {
     chrome.storage.sync.get("setting", (data) => {
-        $settingsValue.value = data.setting || "startUp";
-    });
+        document.querySelector("#settings select").value = data.setting;
+    })
+}
 
-    $saveButton.addEventListener("click", () => {
-        chrome.storage.sync.set({ setting: $settingsValue.value }, () => {
-            $message.innerHTML = "<p>Settings Saved!</p>";
-        });
-    });
-});
+function saveSettings(e) {
+    e.preventDefault();
+    const $settingvalue = document.querySelector("#settings select");
+    
+    chrome.storage.sync.set({ setting: $settingvalue.value });
 
+    displayMessage();
+}
 
+function displayMessage() {
+    document.querySelector("#message").innerHTML = "<p>Setting Saved!</p>";
+}
