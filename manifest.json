@@ -4,6 +4,12 @@
     "short_name": "Motivation",
     "manifest_version": 3,
     "author": "Flor Stellamans",
+    "web_accessible_resources": [
+        {
+            "resources": ["/assets/data/quotes.json"],
+            "matches": ["<all_urls>"]
+        }
+    ],
     "action": {
         "default_popup": "index.html",
         "default_title": "Motivation of the Day"

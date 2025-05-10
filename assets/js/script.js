@@ -1,11 +1,13 @@
 "use strict";
 
-import { getQuote } from "./api.js";
 import { setupTheme } from "./theme.js";
 
 document.addEventListener("DOMContentLoaded", init);
 
-function init() {
+let quotes = [];
+
+async function init() {
+    quotes = await loadQuotes();
     displayQuote();
     setInterval(displayTimer, 1000);
     displayTimer();
@@ -25,10 +27,32 @@ function navigation() {
     }
 }
 
-async function displayQuote() {
+function displayQuote() {
     const $quote = document.querySelector("#quote");
-    const quote = await getQuote();
+    const quote = getQuote();
     $quote.innerHTML = `<h2>${quote}</h2>`;
+}
+
+async function loadQuotes() {
+    const res = await fetch(chrome.runtime.getURL("/assets/data/quotes.json"));
+    return await res.json();
+}
+
+function getQuote() {
+    const quotesLength = 200;
+    const today = new Date().toISOString().split("T")[0];
+    const seed = today.replace(/-/g, "");
+    const index = hashStringToInt(seed, quotesLength);
+    return quotes.quotes[index];
+}
+
+function hashStringToInt(str, max) {
+    let hash = 0;
+    for (let i = 0; i < str.length; i++) {
+        hash = (hash << 5) - hash + str.charCodeAt(i);
+        hash |= 0;
+    }
+    return Math.abs(hash) % max;
 }
 
 function displayTimer() {
