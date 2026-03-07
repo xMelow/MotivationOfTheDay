@@ -29,8 +29,8 @@ function navigation() {
 
 function displayQuote() {
     const $quote = document.querySelector("#quote");
-    const quote = getQuote();
-    $quote.innerHTML = `<h2>${quote}</h2>`;
+    const [quote, index] = getQuote();
+    $quote.innerHTML = `<h2>${index} - ${quote}</h2>`;
 }
 
 async function loadQuotes() {
@@ -39,11 +39,10 @@ async function loadQuotes() {
 }
 
 function getQuote() {
-    const quotesLength = 210;
     const today = new Date().toISOString().split("T")[0];
     const seed = today.replace(/-/g, "");
-    const index = hashStringToInt(seed, quotesLength);
-    return quotes.quotes[index];
+    const index = hashStringToInt(seed, quotes.length);
+    return quotes.quotes[index], index;
 }
 
 function hashStringToInt(str, max) {
