@@ -29,8 +29,8 @@ function navigation() {
 
 function displayQuote() {
     const $quote = document.querySelector("#quote");
-    const [quote, index] = getQuote();
-    $quote.innerHTML = `<h2>${index} - ${quote}</h2>`;
+    const quote = getQuote();
+    $quote.innerHTML = `<h2>${quote}</h2>`;
 }
 
 async function loadQuotes() {
@@ -39,10 +39,11 @@ async function loadQuotes() {
 }
 
 function getQuote() {
-    const today = new Date().toISOString().split("T")[0];
-    const seed = today.replace(/-/g, "");
-    const index = hashStringToInt(seed, quotes.length);
-    return quotes.quotes[index], index;
+    const startDate = new Date("2025-08-17");
+    const currentDate = new Date();
+    const daysPassed = Math.floor((currentDate - startDate) / (1000 * 60 * 60 * 24));
+    const index =  daysPassed % quotes.quotes.length;
+    return quotes.quotes[index]
 }
 
 function hashStringToInt(str, max) {
