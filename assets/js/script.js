@@ -39,7 +39,7 @@ async function loadQuotes() {
 }
 
 function getQuote() {
-    const quotesLength = 200;
+    const quotesLength = 210;
     const today = new Date().toISOString().split("T")[0];
     const seed = today.replace(/-/g, "");
     const index = hashStringToInt(seed, quotesLength);
